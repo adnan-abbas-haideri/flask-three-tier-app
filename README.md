@@ -81,7 +81,7 @@ flask-three-tier-app/
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/flask-three-tier-app.git
+https://github.com/adnan-abbas-haideri/flask-three-tier-app.git
 ```
 
 ```bash
