@@ -1,0 +1,46 @@
+services:
+
+  mysql:
+    container_name: mysql
+    image: mysql:latest
+
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: devops_app
+
+    ports:
+      - "3306:3306"
+
+    networks:
+      - flask
+
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+
+  flask:
+    container_name: flask_app
+    build: .
+
+    environment:
+      DB_HOST: mysql
+      DB_USER: root
+      DB_PASSWORD: root
+      DB_NAME: devops_app
+
+    ports:
+      - "5000:5000"
+
+    networks:
+      - flask
+
+    depends_on:
+      - mysql
+
+
+volumes:
+  mysql-data:
+
+
+networks:
+  flask:
